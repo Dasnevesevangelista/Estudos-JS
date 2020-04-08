@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Caucula troco</title>
+    <style>
+        body{
+            font: normal 18pt Arial;
+        }
+        button{
+            padding: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculando o troco</h1>
+    <button id="btn1" onclick="clicou()">Comprar produto</button>
+   
+<script>
+    function clicou() {
+        let nome = prompt('Qual produto você está comprando')
+        let custo = Number(prompt(`Quanto custa ${nome} que você está comprando`))
+        let valor = Number(prompt(`Qual foi o valor que você deu para pagar o ${nome}`)) 
+        let total = valor - custo 
+        alert(`Você comprou ${nome} que custou R$:${custo.toFixed(2)} Reais.\nDeu R$: ${valor.toFixed(2)} Reais em dinheiro e vai receber R$:${total} Reais de troco.\nVolte sempre!`)   
+    }    
+   
+</script>
+</body>
+</html>
