@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor R$ ->  US$</title>
+    <style>
+        body{
+            font: normal 18pt Arial;
+        }
+        button{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body onload="cotacao()">
+    <h1>Conversor R$ ->  US$</h1>
+    <button onclick="converte()">Converter</button>
+    <section>
+        <p id="result">Clique no Botão acima para iniciar</p>
+    </section>
+    <script>
+        function cotacao(){
+            var cota = Number(prompt('Antes de mais nada, informe a cotação?'))       // O exercicio pede que ao abrir a pagina o  
+                                                                                      // usuario informe a cotação do dola para poder realizar 
+                                                                                      // o calculo.
+                                                                                      // Não estou conseguindo pegar o valor que estar na função 
+                                                                                      // cotação e realizar o calculo na função converte.
+        }
+        
+        function converte(){
+            var result = document.getElementById('result')
+            var din = Number(prompt('Quantos R$ você tem na carteira?'))
+            var total = cotacao * din
+            result.innerHTML = `Você possui ${din.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} Reais e consegue comprar ${total}.toLocaleString('pt-br',{style: 'currency' , currency: 'USD'})}`
+        }
+    </script>
+</body>
+</html>
+

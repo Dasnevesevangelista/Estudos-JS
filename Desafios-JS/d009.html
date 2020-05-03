@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reajuste Salárial</title>
+    <style>
+        body{
+            font: normal 18pt Arial;
+        }
+        button{
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reajuste Salárial</h1>
+    <button onclick="reajuste()">Reajustar Salário</button>
+    <div>
+        <p id="result">Clique no botão acima para iniciar.</p>
+    </div>
+    <script>
+        function reajuste (){
+            
+            let result = document.getElementById('result')
+            let nome = prompt('Qual é o nome do funcionario?')
+            let salario = Number(prompt(`Qual é o salário de ${nome}`))
+            let porcentagem = Number(prompt(`O salário de ${nome} vai ser reajustado em qual porcetagem?`))
+            let calc = (salario * porcentagem)/100 
+            let totalSal = salario + calc 
+            result.innerHTML = `<p>${nome} recebeu um aumento Salarial!</p>`
+            result.innerHTML += `<p>O salário atual era ${salario}.</p>`
+            result.innerHTML += `<p>Com o aumento de ${porcentagem}%, o salário vai aumentar${calc.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.</p>`
+            result.innerHTML += `<p>E a partir daí, ${nome} vai passar a ganhar ${totalSal.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.</p>`
+
+        }
+        
+
+
+    </script>
+</body>
+</html>

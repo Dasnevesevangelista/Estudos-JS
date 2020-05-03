@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preço Mudou</title>
+    <style>
+        boby{
+            font: normal 20pt Arial; 
+        }
+        button{
+            padding: 20px;
+        }
+        h1{
+            font-size: 60px;
+        }
+        p{
+            font-size: 30px;
+        }        
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <button onclick="verificar()">Verificar</button>
+    <div>
+        <p id="res">Clique no botão acima para analisar a mudança de preço.</p>
+    </div>
+</body>
+<script>
+    function verificar() {
+
+        let valorAnterior = Number(prompt('Qual era o preço anterior do produto?'))
+        let valorAtual = Number(prompt('Qual é o preço atual do produto?'))
+
+        res.innerHTML = '<p><strong>Analizando os valores informados.</strong></p>'
+
+        if(valorAtual > valorAnterior){
+
+            res.innerHTML += `<p>O produto custava ${valorAnterior.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} e agora custa ${valorAtual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.</p>`
+            res.innerHTML += '<p>Hoje o produto está mais caro.</p>'
+            res.innerHTML += `<p>O preço subiu ${(valorAtual - valorAnterior).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} em relação ao preço anterior.</p>` 
+            res.innerHTML += `<p>Uma variação de ${((valorAtual/valorAnterior - 1) * 100).toFixed(1)}% para cima.</p>` 
+
+        }else{
+
+            res.innerHTML += `<p>O produto custava ${valorAnterior.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} e agora custa ${valorAtual.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}.</p>`
+            res.innerHTML += '<p>Hoje o produto está mais barato.</p>'
+            res.innerHTML += `<p>O preço caiu ${(valorAnterior - valorAtual).toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})} em relação ao preço anterior.</p>` 
+            res.innerHTML += `<p>Uma variação de ${((valorAnterior/valorAtual - 1) * 100).toFixed(2)}% para baixo.</p>` 
+
+        }
+
+        
+    }
+</script>
+</html>

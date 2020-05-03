@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Situação do aluno</title>
+    <style>
+        boby{
+            font: normal 20pt Arial; 
+        }
+        button{
+            padding: 20px;
+            font-size: 20px;
+        }
+        h1{
+            font-size: 50px;
+           
+        }
+        p{
+            font-size: 30px;
+        }        
+    </style>
+</head>
+<body>
+    <h1>Situação do aluno</h1>
+    <button onclick="media()">Entrar com as notas</button>
+    <div>
+        <p id="res">Clique no botão acima para informar as notas do aluno.</p>
+    </div>
+</body>
+<script>
+    function media() {
+        let res = document.getElementById('res')
+        let nome = prompt('Qual é o nome do aluno?')
+        let nota1 = Number(prompt(`Primeira nota de ${nome}:`))
+        let nota2 = Number(prompt(`Segunda nota de ${nome}:`))
+        let media = (nota1 + nota2)/2
+        res.innerHTML = `<p><strong>Analisando a situação de ${nome}</strong></p>`
+
+        if(media < 3){
+            res.innerHTML += `<p>com as notas ${(nota1.toFixed(1)).replace('.',',')} e ${(nota2.toFixed(1)).replace('.',',')}, a <strong>média é ${(media.toFixed(1)).replace}</strong></p>`
+            res.innerHTML += `<p>Com média abaixo de 3,0, O aluno está <span style="background: #e9616180">REPROVADO</span></p>`
+
+        }else if(media <= 6){
+            res.innerHTML += `<p>com as notas ${(nota1.toFixed(1)).replace('.',',')} e ${(nota2.toFixed(1)).replace('.',',')}, a <strong>média é ${(media.toFixed(1)).replace('.',',')}</strong></p>`
+            res.innerHTML += `<p>Com média entre 3,0 e 6,0, O aluno está <span style="background: #f3f04c98">RECUPERAÇÃO</span></p>`
+           
+
+        }else{
+            res.innerHTML += `<p>com as notas ${(nota1.toFixed(1)).replace('.',',')} e ${(nota2.toFixed(1)).replace('.',',')}, a <strong>média é ${(media.toFixed(1)).replace('.',',')}</strong></p>`
+            res.innerHTML += `<p>Com média acima de 6,0, O aluno está <span style="background: #4cf34c98">APROVADO</span></p>`
+        } 
+
+        
+    }
+</script>
+</html>
